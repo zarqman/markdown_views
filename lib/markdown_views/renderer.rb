@@ -7,7 +7,7 @@ module MarkdownViews
         out = strip_comments(out) if MarkdownViews.strip_comments
         out = renderer.render(out)
         out = strip_comments(out) if MarkdownViews.strip_comments
-        out
+        out.html_safe
       end
 
       def renderer
@@ -36,14 +36,16 @@ module MarkdownViews
 
     def table(header, body)
       <<-TBL
-        <table class="table">
-          <thead>
-            #{header}
-          </thead>
-          <tbody>
-            #{body}
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              #{header}
+            </thead>
+            <tbody>
+              #{body}
+            </tbody>
+          </table>
+        </div>
       TBL
     end
   end
