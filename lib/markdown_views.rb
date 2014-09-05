@@ -4,7 +4,7 @@ require 'cgi'
 require 'coderay'
 require 'redcarpet'
 
-%w(config handler renderer version).each do |f|
+%w(config engine handler renderer version).each do |f|
   require "markdown_views/#{f}"
 end
 

@@ -28,6 +28,15 @@ Likewise, CodeRay can be configured too:
 
 By default, no CSS file is included for CodeRay. This is probably undesirable and you'll want to add one to your asset pipeline somewhere.
 
+### Helper
+
+MarkdownViews also includes a simple Markdown rendering helper. It uses the app-wide config already defined (see above).
+
+    <%= markdown('## Some markdown text') %>
+
+    <%= markdown do %>
+    ## Some markdown text
+    <% end %>
 
 ## Installation
 

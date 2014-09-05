@@ -31,7 +31,7 @@ module MarkdownViews
       language ||= 'text'
       html = CGI::unescapeHTML(text).sub(/\A[ \t\n\r]+/, '').sub(/[ \t\n\r]+\Z/, '')
       cr = CodeRay.scan(html, language).html(MarkdownViews.coderay_opts)
-      %Q{<pre><code class="CodeRay">#{cr.chomp}</code></pre>}
+      %Q{<pre class="lang-#{language.to_s.gsub(/[^a-z0-9]/,'')}"><code class="CodeRay">#{cr.chomp}</code></pre>}
     end
 
     def table(header, body)
