@@ -3,7 +3,7 @@ module MarkdownViews
     class << self
 
       def render(template)
-        out = template
+        out = template.to_s
         out = strip_comments(out) if MarkdownViews.strip_comments
         out = renderer.render(out)
         out = strip_comments(out) if MarkdownViews.strip_comments
