@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["thomas morgan"]
   spec.email         = ["tm@iprog.com"]
   spec.summary       = %q{Add .md template handler to Rails.}
-  spec.description   = %q{Makes Rails handle .md templates, with optional preprocessing of ERB, HAML, etc. Easily configurable; uses RedCarpet.}
-  spec.homepage      = ""
+  spec.description   = %q{Makes Rails handle .md templates, with optional preprocessing of ERB, HAML, etc. Easily configurable; uses RedCarpet & CodeRay.}
+  spec.homepage      = "https://github.com/zarqman/markdown_views"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
