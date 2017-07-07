@@ -26,7 +26,10 @@ Likewise, CodeRay can be configured too:
 
     MarkdownViews.coderay_opts.merge! line_numbers: true
 
-By default, no CSS file is included for CodeRay. This is probably undesirable and you'll want to add one to your asset pipeline somewhere.
+The default CSS from CodeRay is made available via the asset pipeline. To use it, add this to your `application.css`:
+
+    *= require coderay
+
 
 ### Helper
 
