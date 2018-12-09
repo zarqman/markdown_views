@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["thomas morgan"]
   spec.email         = ["tm@iprog.com"]
   spec.summary       = %q{Add .md template handler to Rails.}
-  spec.description   = %q{Makes Rails handle .md templates, with optional preprocessing of ERB, HAML, etc. Easily configurable; uses RedCarpet & CodeRay.}
+  spec.description   = %q{Enables Rails handling of .md templates, with optional preprocessing of ERB, HAML, etc. Also provides a markdown() view helper. Uses CommonMarker & Rouge.}
   spec.homepage      = "https://github.com/zarqman/markdown_views"
   spec.license       = "MIT"
 
@@ -18,9 +18,9 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'redcarpet', '~> 3.1'
-  spec.add_dependency 'coderay', '~> 1.1'
-  spec.add_dependency 'actionpack', '>= 4.0', '< 6'
+  spec.add_dependency 'commonmarker', '~> 0.18.2'
+  spec.add_dependency 'rouge', '~> 3.3.0'
+  spec.add_dependency 'actionpack', '>= 5.0', '< 6'
 
   spec.add_development_dependency "bundler", "~> 1.5"
   spec.add_development_dependency "rake"

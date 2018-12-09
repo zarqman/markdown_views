@@ -5,48 +5,45 @@ module MarkdownViews
       def render(template)
         out = template.to_s
         out = strip_comments(out) if MarkdownViews.strip_comments
-        out = renderer.render(out)
+        out = render_md(out)
         out = strip_comments(out) if MarkdownViews.strip_comments
         out.html_safe
       end
 
-      def renderer
-        @@renderer ||= begin
-          r = ExtendedMarkdownHtml.new MarkdownViews.rendering_opts
-          Redcarpet::Markdown.new r, MarkdownViews.markdown_opts
+      # remainder all considered private
+
+      def render_md(input)
+        doc = CommonMarker.render_doc(input, MarkdownViews.parsing_opts, MarkdownViews.extensions)
+
+        doc.walk do |node|
+          next unless node.type == :code_block
+          next if node.fence_info == ''
+
+          lang = node.fence_info
+          code = node.string_content
+          lexer = Rouge::Lexer.find(lang) || Rouge::Lexers::PlainText
+          html = rouge_formatter.format(lexer.lex code).rstrip
+          if MarkdownViews.rouge_opts[:wrap]
+            html = %Q{<pre lang="#{lang.gsub(/[^a-z0-9_-]/,'')}"><code class="rouge-highlight">#{html}</code></pre>}
+          end
+
+          new_node = CommonMarker::Node.new(:html)
+          new_node.string_content = html
+          node.insert_before new_node
+          node.delete
         end
+
+        doc.to_html(MarkdownViews.rendering_opts, MarkdownViews.extensions)
+      end
+
+      def rouge_formatter
+        MarkdownViews.rouge_opts[:formatter] || Rouge::Formatters::HTML.new
       end
 
       def strip_comments(input)
         input.gsub(/[ \t\r\n\f]*<!--(.*?)-->*/m, '')
       end
 
-    end
-  end
-
-  class ExtendedMarkdownHtml < Redcarpet::Render::HTML
-    include Redcarpet::Render::SmartyPants
-
-    def block_code(text, language)
-      language ||= 'text'
-      html = CGI::unescapeHTML(text).sub(/\A[ \t\n\r]+/, '').sub(/[ \t\n\r]+\Z/, '')
-      cr = CodeRay.scan(html, language).html(MarkdownViews.coderay_opts)
-      %Q{<pre class="lang-#{language.to_s.gsub(/[^a-z0-9]/,'')}"><code class="CodeRay">#{cr.chomp}</code></pre>}
-    end
-
-    def table(header, body)
-      <<-TBL
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-              #{header}
-            </thead>
-            <tbody>
-              #{body}
-            </tbody>
-          </table>
-        </div>
-      TBL
     end
   end
 end

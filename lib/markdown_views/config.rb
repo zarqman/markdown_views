@@ -5,34 +5,23 @@ module MarkdownViews
   mattr_accessor :preprocessor
   self.preprocessor = :erb
 
+  mattr_accessor :extensions
+  self.extensions = %i(autolink strikethrough table tagfilter)
+
   mattr_accessor :rendering_opts
-  self.rendering_opts = {
-    # filter_html: true,
-    hard_wrap: true,
-    # link_attributes: {'data-popup'=> true},
-    # no_styles: true,
-    # safe_links_only: true,
-  }
+  self.rendering_opts = %i(UNSAFE GITHUB_PRE_LANG HARDBREAKS TABLE_PREFER_STYLE_ATTRIBUTES)
+    # DEFAULT UNSAFE GITHUB_PRE_LANG HARDBREAKS NOBREAKS SOURCEPOS
+    # TABLE_PREFER_STYLE_ATTRIBUTES FULL_INFO_STRING
 
-  mattr_accessor :markdown_opts
-  self.markdown_opts = {
-    autolink: true,
-    disable_indented_code_blocks: true,
-    fenced_code_blocks: true,
-    lax_spacing: true,
-    no_intra_emphasis: true,
-    space_after_headers: true,
-    strikethrough: true,
-    tables: true,
-  }
+  mattr_accessor :parsing_opts
+  self.parsing_opts = %i(UNSAFE SMART VALIDATE_UTF8)
+    # DEFAULT, UNSAFE, FOOTNOTES, LIBERAL_HTML_TAG, SMART
+    # STRIKETHROUGH_DOUBLE_TILDE, VALIDATE_UTF8
 
-  mattr_accessor :coderay_opts
-  self.coderay_opts = {
-    bold_every: false,
-    css: :class,
-    line_number_anchors: false,
-    line_numbers: false,
+  mattr_accessor :rouge_opts
+  self.rouge_opts = {
+    formatter: Rouge::Formatters::HTML.new,
+    wrap: true,
   }
 
 end
-

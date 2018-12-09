@@ -1,0 +1,84 @@
+.rouge-highlight table td { padding: 5px; }
+.rouge-highlight table pre { margin: 0; }
+.rouge-highlight, .rouge-highlight .w {
+  color: #282828;
+  background-color: #fbf1c7;
+}
+.rouge-highlight .err {
+  color: #9d0006;
+  background-color: #fbf1c7;
+  font-weight: bold;
+}
+.rouge-highlight .c, .rouge-highlight .cd, .rouge-highlight .cm, .rouge-highlight .c1, .rouge-highlight .cs {
+  color: #928374;
+  font-style: italic;
+}
+.rouge-highlight .cp {
+  color: #427b58;
+}
+.rouge-highlight .nt {
+  color: #9d0006;
+}
+.rouge-highlight .o, .rouge-highlight .ow {
+  color: #282828;
+}
+.rouge-highlight .p, .rouge-highlight .pi {
+  color: #282828;
+}
+.rouge-highlight .gi {
+  color: #79740e;
+  background-color: #fbf1c7;
+}
+.rouge-highlight .gd {
+  color: #9d0006;
+  background-color: #fbf1c7;
+}
+.rouge-highlight .gh {
+  color: #79740e;
+  font-weight: bold;
+}
+.rouge-highlight .k, .rouge-highlight .kn, .rouge-highlight .kp, .rouge-highlight .kr, .rouge-highlight .kv {
+  color: #9d0006;
+}
+.rouge-highlight .kc {
+  color: #8f3f71;
+}
+.rouge-highlight .kt {
+  color: #b57614;
+}
+.rouge-highlight .kd {
+  color: #af3a03;
+}
+.rouge-highlight .s, .rouge-highlight .sb, .rouge-highlight .sc, .rouge-highlight .sd, .rouge-highlight .s2, .rouge-highlight .sh, .rouge-highlight .sx, .rouge-highlight .s1 {
+  color: #79740e;
+  font-style: italic;
+}
+.rouge-highlight .si {
+  color: #79740e;
+  font-style: italic;
+}
+.rouge-highlight .sr {
+  color: #79740e;
+  font-style: italic;
+}
+.rouge-highlight .se {
+  color: #af3a03;
+}
+.rouge-highlight .nn {
+  color: #427b58;
+}
+.rouge-highlight .nc {
+  color: #427b58;
+}
+.rouge-highlight .no {
+  color: #8f3f71;
+}
+.rouge-highlight .na {
+  color: #79740e;
+}
+.rouge-highlight .m, .rouge-highlight .mf, .rouge-highlight .mh, .rouge-highlight .mi, .rouge-highlight .il, .rouge-highlight .mo, .rouge-highlight .mb, .rouge-highlight .mx {
+  color: #8f3f71;
+}
+.rouge-highlight .ss {
+  color: #076678;
+}

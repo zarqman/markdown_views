@@ -1,13 +1,39 @@
 # MarkdownViews
 
-Make Rails 4+ handle .md templates, with optional preprocessing of ERB, HAML, etc. Easily configurable; uses RedCarpet. Also performs syntax highlighting via CodeRay.
+MarkdownViews enables Rails 5+ to process .md templates as part of `app/views/`, with optional preprocessing of ERB, HAML, etc. A `markdown()` helper is also provided for when you need Markdown for only part of a view.
 
-## Usage
-
-Just create views as `some_action.html.md` instead of `some_action.html.erb`.
+It uses CommonMarker for markdown processing and Rouge for syntax highlighting.
 
 
-By default also strips all HTML comments from the output. This can cause issues with inline Javascript or otherwise be undesired. To disable, add the following to an initializer:
+## Usage: Views
+
+Just create views as `some_action.html.md` instead of `some_action.html.erb` and write them with Markdown instead of HTML. You can still use ERB (or HAML, etc -- see below).
+
+    # My page title
+    
+    Hello, **<%= current_user.first_name %>**.
+    
+    ```ruby
+    def syntax_highlighting
+      'works too!'
+    end
+    ```
+
+
+## Usage: Helper
+
+MarkdownViews also includes a simple Markdown rendering helper.
+
+    <%= markdown('## Some markdown text') %>
+
+    <%= markdown do %>
+    ## Some markdown text
+    <% end %>
+
+
+## Configuration
+
+By default, all HTML comments are stripped from the output. Occasionally this can cause issues with inline Javascript or otherwise be undesired. To disable, add the following to an initializer:
 
     MarkdownViews.strip_comments = false
 
@@ -16,30 +42,31 @@ By default, all .md files are preprocessed with ERB (making them effectively .md
     MarkdownViews.preprocessor = :erb
     MarkdownViews.preprocessor = nil
 
-RedCarpet's rendering can be configured. Both rendering options and markdown options can be set. See RedCarpet's documentation for available options.
+CommonMarker's rendering can also be configured. See CommonMarker's documentation for available options.
 
-    MarkdownViews.markdown_opts.merge! fenced_code_blocks: false
+    MarkdownViews.parsing_opts -= %i(UNSAFE)
 
-    MarkdownViews.rendering_opts.merge! link_attributes: {'data-popup'=> true}
+    MarkdownViews.rendering_opts -= %i(UNSAFE TABLE_PREFER_STYLE_ATTRIBUTES)
 
-Likewise, CodeRay can be configured too:
+    MarkdownViews.extensions -= %i(autolink)
 
-    MarkdownViews.coderay_opts.merge! line_numbers: true
+Likewise, Rouge can be configured:
 
-The default CSS from CodeRay is made available via the asset pipeline. To use it, add this to your `application.css`:
+    # Use inline formatting:
+    MarkdownViews.rouge_opts.merge! formatter: Rouge::Formatters::HTMLInline.new('pastie')
 
-    *= require coderay
+    # Enable line numbers:
+    MarkdownViews.rouge_opts.merge!(
+      formatter: Rouge::Formatters::HTMLTable.new(Rouge::Formatters::HTML.new, code_class: 'rouge-highlight'),
+      wrap: false
+    )
 
+The standard CSS themes from Rouge are available via the asset pipeline. To use one, add it to your `application.css`:
 
-### Helper
+    *= require rouge.monokai
 
-MarkdownViews also includes a simple Markdown rendering helper. It uses the app-wide config already defined (see above).
+See `app/assets/stylesheets/` for the complete list.
 
-    <%= markdown('## Some markdown text') %>
-
-    <%= markdown do %>
-    ## Some markdown text
-    <% end %>
 
 ## Installation
 
@@ -50,6 +77,20 @@ Add this line to your application's Gemfile:
 And then execute:
 
     $ bundle
+
+
+## Gem versions
+
+The 0.x series used RedCarpet and CodeRay.
+(There was no 1.x series.)
+The 2.x series uses CommonMarker and Rouge.
+
+#### Upgrading from 0.x to 2.x
+
+The configuration options have changed. The defaults are roughly the same as before. However, if you had customized them previously, then it will need to be revisited.
+
+Similarly, the provided stylesheets for syntax highlighting have been changed. If you were importing the 'coderay' stylesheet before, then a new stylesheet will need to be selected. Try 'rouge.colorful' or one of the others included in app/assets/stylesheets.
+
 
 ## Contributing
 
