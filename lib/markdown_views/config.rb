@@ -8,6 +8,9 @@ module MarkdownViews
   mattr_accessor :extensions
   self.extensions = %i(autolink strikethrough table tagfilter)
 
+  mattr_accessor :transformers
+  self.transformers = %i(code_blocks)
+
   mattr_accessor :rendering_opts
   self.rendering_opts = %i(UNSAFE GITHUB_PRE_LANG HARDBREAKS TABLE_PREFER_STYLE_ATTRIBUTES)
     # DEFAULT UNSAFE GITHUB_PRE_LANG HARDBREAKS NOBREAKS SOURCEPOS

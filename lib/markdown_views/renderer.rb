@@ -15,6 +15,20 @@ module MarkdownViews
       def render_md(input)
         doc = CommonMarker.render_doc(input, MarkdownViews.parsing_opts, MarkdownViews.extensions)
 
+        MarkdownViews.transformers.each {|name| send("transform_#{name}", doc) }
+
+        doc.to_html(MarkdownViews.rendering_opts, MarkdownViews.extensions)
+      end
+
+      def rouge_formatter
+        MarkdownViews.rouge_opts[:formatter] || Rouge::Formatters::HTML.new
+      end
+
+      def strip_comments!(input)
+        input.gsub!(/[ \t\r\n\f]*<!--(.*?)-->*/m, '')
+      end
+
+      def transform_code_blocks(doc)
         doc.walk do |node|
           next unless node.type == :code_block
           next if node.fence_info == ''
@@ -32,16 +46,6 @@ module MarkdownViews
           node.insert_before new_node
           node.delete
         end
-
-        doc.to_html(MarkdownViews.rendering_opts, MarkdownViews.extensions)
-      end
-
-      def rouge_formatter
-        MarkdownViews.rouge_opts[:formatter] || Rouge::Formatters::HTML.new
-      end
-
-      def strip_comments!(input)
-        input.gsub!(/[ \t\r\n\f]*<!--(.*?)-->*/m, '')
       end
 
     end
