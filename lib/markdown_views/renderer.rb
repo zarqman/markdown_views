@@ -4,9 +4,9 @@ module MarkdownViews
 
       def render(template)
         out = template.to_s
-        out = strip_comments(out) if MarkdownViews.strip_comments
+        strip_comments!(out) if MarkdownViews.strip_comments
         out = render_md(out)
-        out = strip_comments(out) if MarkdownViews.strip_comments
+        strip_comments!(out) if MarkdownViews.strip_comments
         out.html_safe
       end
 
@@ -40,8 +40,8 @@ module MarkdownViews
         MarkdownViews.rouge_opts[:formatter] || Rouge::Formatters::HTML.new
       end
 
-      def strip_comments(input)
-        input.gsub(/[ \t\r\n\f]*<!--(.*?)-->*/m, '')
+      def strip_comments!(input)
+        input.gsub!(/[ \t\r\n\f]*<!--(.*?)-->*/m, '')
       end
 
     end
