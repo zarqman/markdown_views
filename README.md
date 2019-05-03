@@ -1,6 +1,6 @@
 # MarkdownViews
 
-MarkdownViews enables Rails 5+ to process .md templates as part of `app/views/`, with optional preprocessing of ERB, HAML, etc. A `markdown()` helper is also provided for when you need Markdown for only part of a view.
+MarkdownViews enables Rails 5-6+ to process .md templates as part of `app/views/`, with optional preprocessing of ERB, HAML, etc. A `markdown()` helper is also provided for when you need Markdown for only part of a view.
 
 It uses CommonMarker for markdown processing and Rouge for syntax highlighting.
 
