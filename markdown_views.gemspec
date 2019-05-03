@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'commonmarker', '>= 0.18.2', '< 0.21'
   spec.add_dependency 'rouge', '~> 3.3.0'
-  spec.add_dependency 'actionpack', '>= 5.0', '< 6'
+  spec.add_dependency 'actionpack', '>= 5.0', '< 6.1'
 
   spec.add_development_dependency "bundler", "~> 1.5"
   spec.add_development_dependency "rake"
