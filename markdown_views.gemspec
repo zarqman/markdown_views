@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'commonmarker', '~> 0.18.2'
+  spec.add_dependency 'commonmarker', '>= 0.18.2', '< 0.21'
   spec.add_dependency 'rouge', '~> 3.3.0'
   spec.add_dependency 'actionpack', '>= 5.0', '< 6'
 
