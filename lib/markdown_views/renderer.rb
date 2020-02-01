@@ -24,8 +24,18 @@ module MarkdownViews
         MarkdownViews.rouge_opts[:formatter] || Rouge::Formatters::HTML.new
       end
 
+      # when removing comments, also cleans up leading whitespace.
+      #   if whitespace includes line feeds, leaves 1 behind to 
+      #   avoid breaking markdown adjacent to comment.
       def strip_comments(input)
-        input.gsub(/[ \t\r\n\f]*<!--(.*?)-->*/m, '')
+        # (\s*)   leading whitespace
+        # <!--    start of html comment
+        # .*?     any char, incl linefeed (for multi-line comments)
+        #           lazy (non-greedy): *?
+        # -->     end of html comment
+        input.gsub(/(\s*)<!--.*?-->/m) do |match|
+          $1 =~ %r{\n} ? "\n" : ''
+        end
       end
 
       def transform_code_blocks(doc)
