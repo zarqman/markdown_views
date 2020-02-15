@@ -24,16 +24,31 @@ module MarkdownViews
         MarkdownViews.rouge_opts[:formatter] || Rouge::Formatters::HTML.new
       end
 
-      # when removing comments, also cleans up leading whitespace.
-      #   if whitespace includes line feeds, leaves 1 behind to 
-      #   avoid breaking markdown adjacent to comment.
+      # removes single & multi-line comments
+      #   if any content besides comment & whitespace is on same line(s), strips just the comment.
+      #   if no other content, strips the lines & whitespace too.
       def strip_comments(input)
-        # (\s*)   leading whitespace
-        # <!--    start of html comment
-        # .*?     any char, incl linefeed (for multi-line comments)
-        #           lazy (non-greedy): *?
-        # -->     end of html comment
-        input.gsub(/(\s*)<!--.*?-->/m, '')
+        # ^[ \t]*(<!--.*?-->)++[ \t]*\r?\n    lines with just comments
+        # |                                   or
+        # <!--.*?-->                          comments on lines with other content
+        #
+        # ^                 start of line
+        # [ \t]*            optional spaces or tabs
+        # (<!--.*?-->)++
+        #   <!--            start of html comment
+        #   .*?             any char, incl linefeed (for multi-line comments)
+        #                     lazy (non-greedy): *?
+        #   -->             end of html comment
+        #   ++              possessive match - prevents a match across comment boundaries
+        #                     ie: prevent matching this: <!-- a --> keep <!-- b -->
+        #                     explanation: initially .*? will refuse to match --> because it's
+        #                       non-greedy. but, in search of pre/post whitespace, the regex engine
+        #                       could backtrack and ask .*? to match an --> as long as there's
+        #                       another --> later. possessive disables the backtracking.
+        #                     can combine <!-- a --><!-- b --> into one match, which is of no harm.
+        # [ \t]*            optional spaces or tabs
+        # \r?\n             end of line (either unix or windows style)
+        input.gsub(/^[ \t]*(<!--.*?-->)++[ \t]*\r?\n|<!--.*?-->/m, '')
       end
 
       def transform_code_blocks(doc)
