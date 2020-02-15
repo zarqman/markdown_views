@@ -33,9 +33,7 @@ module MarkdownViews
         # .*?     any char, incl linefeed (for multi-line comments)
         #           lazy (non-greedy): *?
         # -->     end of html comment
-        input.gsub(/(\s*)<!--.*?-->/m) do |match|
-          $1 =~ %r{\n} ? "\n" : ''
-        end
+        input.gsub(/(\s*)<!--.*?-->/m, '')
       end
 
       def transform_code_blocks(doc)
