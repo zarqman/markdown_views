@@ -1,6 +1,6 @@
 # MarkdownViews
 
-MarkdownViews enables Rails 5-6+ to process .md templates as part of `app/views/`, with optional preprocessing of ERB, HAML, etc. A `markdown()` helper is also provided for when you need Markdown for only part of a view.
+MarkdownViews enables Rails 5-7+ to process .md templates as part of `app/views/`, with optional preprocessing of ERB, HAML, etc. A `markdown()` helper is also provided for when you need Markdown for only part of a view.
 
 It uses CommonMarker for markdown processing and Rouge for syntax highlighting.
 
@@ -42,7 +42,7 @@ By default, all .md files are preprocessed with ERB (making them effectively .md
     MarkdownViews.preprocessor = :erb
     MarkdownViews.preprocessor = nil
 
-CommonMarker's rendering can also be configured. See CommonMarker's documentation for available options.
+CommonMarker's rendering can also be configured. See [CommonMarker's documentation](https://github.com/gjtorikian/commonmarker#options-and-plugins) for available options.
 
     MarkdownViews.parsing_opts -= %i(UNSAFE)
 
@@ -94,7 +94,7 @@ Similarly, the provided stylesheets for syntax highlighting have been changed. I
 
 ## Contributing
 
-1. Fork it ( http://github.com/<my-github-username>/markdown_views/fork )
+1. Fork it ( http://github.com/zarqman/markdown_views/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
