@@ -22,7 +22,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'rails', '>= 5.0', '< 7.2'
   spec.add_dependency 'rouge', '>= 3.3', '< 5.0'
 
-  # spec.add_development_dependency "bundler", "> 1.5"
   spec.add_development_dependency "minitest-reporters"
   spec.add_development_dependency "rake"
 end
