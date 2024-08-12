@@ -3,7 +3,7 @@ PATH
   specs:
     markdown_views (2.3.0)
       commonmarker (>= 0.18.2, < 0.24)
-      rails (>= 5.0, < 7.2)
+      rails (>= 5.0, < 7.3)
       rouge (>= 3.3, < 5.0)
 
 GEM

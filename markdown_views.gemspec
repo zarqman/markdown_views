@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency 'commonmarker', '>= 0.18.2', '< 0.24'
-  spec.add_dependency 'rails', '>= 5.0', '< 7.2'
+  spec.add_dependency 'rails', '>= 5.0', '< 7.3'
   spec.add_dependency 'rouge', '>= 3.3', '< 5.0'
 
   spec.add_development_dependency "minitest-reporters"
