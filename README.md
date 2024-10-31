@@ -1,6 +1,6 @@
 # MarkdownViews
 
-MarkdownViews enables Rails 5-7+ to process .md templates as part of `app/views/`, with optional preprocessing of ERB, HAML, etc. A `markdown()` helper is also provided for when you need Markdown for only part of a view.
+MarkdownViews enables Rails 5-8+ to process .md templates as part of `app/views/`, with optional preprocessing of ERB, HAML, etc. A `markdown()` helper is also provided for when you need Markdown for only part of a view.
 
 It uses CommonMarker for markdown processing and Rouge for syntax highlighting.
 
@@ -10,9 +10,9 @@ It uses CommonMarker for markdown processing and Rouge for syntax highlighting.
 Just create views as `some_action.html.md` instead of `some_action.html.erb` and write them with Markdown instead of HTML. You can still use ERB (or HAML, etc -- see below).
 
     # My page title
-    
+
     Hello, **<%= current_user.first_name %>**.
-    
+
     ```ruby
     def syntax_highlighting
       'works too!'
