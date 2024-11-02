@@ -53,10 +53,4 @@ class StripCommentsTest < Minitest::Test
     MarkdownViews::Renderer.strip_comments(*args)
   end
 
-  # hack to make diffs more understandable
-  # otherwise minitest sometimes truncates multi-lines diffs, making them unusable
-  def mu_pp(obj)
-    super obj.gsub("\n", '\n').gsub("\t", '\t')
-  end
-
 end
