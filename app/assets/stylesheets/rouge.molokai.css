@@ -1,6 +1,6 @@
 .rouge-highlight table td { padding: 5px; }
 .rouge-highlight table pre { margin: 0; }
-.rouge-highlight .c, .rouge-highlight .cd {
+.rouge-highlight .c, .rouge-highlight .ch, .rouge-highlight .cd, .rouge-highlight .cpf {
   color: #5e5d83;
   font-style: italic;
 }
@@ -32,7 +32,10 @@
   color: #f92672;
 }
 .rouge-highlight .ge {
-  color: #1b1d1e;
+  font-style: italic;
+}
+.rouge-highlight .ges {
+  font-weight: bold;
   font-style: italic;
 }
 .rouge-highlight .gr {
@@ -143,7 +146,7 @@
 .rouge-highlight .ss {
   color: #d7d787;
 }
-.rouge-highlight .s {
+.rouge-highlight .s, .rouge-highlight .sa, .rouge-highlight .dl {
   color: #d7d787;
 }
 .rouge-highlight .na {
@@ -161,7 +164,7 @@
   color: #a6e22e;
   font-weight: bold;
 }
-.rouge-highlight .nf {
+.rouge-highlight .nf, .rouge-highlight .fm {
   color: #a6e22e;
   font-weight: bold;
 }
@@ -189,7 +192,7 @@
 .rouge-highlight .vi {
   color: #f8f8f2;
 }
-.rouge-highlight .nv {
+.rouge-highlight .nv, .rouge-highlight .vm {
   color: #f8f8f2;
 }
 .rouge-highlight .w {

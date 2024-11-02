@@ -1,0 +1,70 @@
+.rouge-highlight table td { padding: 5px; }
+.rouge-highlight table pre { margin: 0; }
+.rouge-highlight, .rouge-highlight .w {
+  color: #000000;
+  background-color: #ffffff;
+}
+.rouge-highlight .c, .rouge-highlight .ch, .rouge-highlight .cd, .rouge-highlight .cm, .rouge-highlight .cpf, .rouge-highlight .c1, .rouge-highlight .cs {
+  font-style: italic;
+}
+.rouge-highlight .cp {
+}
+.rouge-highlight .k, .rouge-highlight .kc, .rouge-highlight .kd, .rouge-highlight .kn, .rouge-highlight .kr, .rouge-highlight .kv {
+  font-weight: bold;
+}
+.rouge-highlight .kp {
+}
+.rouge-highlight .kt {
+}
+.rouge-highlight .o, .rouge-highlight .ow {
+  font-weight: bold;
+}
+.rouge-highlight .nc {
+  font-weight: bold;
+}
+.rouge-highlight .nn {
+  font-weight: bold;
+}
+.rouge-highlight .ne {
+  font-weight: bold;
+}
+.rouge-highlight .ni {
+  font-weight: bold;
+}
+.rouge-highlight .nt {
+  font-weight: bold;
+}
+.rouge-highlight .s, .rouge-highlight .sb, .rouge-highlight .sc, .rouge-highlight .dl, .rouge-highlight .sd, .rouge-highlight .s2, .rouge-highlight .sh, .rouge-highlight .sx, .rouge-highlight .sr, .rouge-highlight .s1, .rouge-highlight .ss {
+  font-style: italic;
+}
+.rouge-highlight .sa {
+  font-weight: bold;
+}
+.rouge-highlight .si {
+  font-weight: bold;
+}
+.rouge-highlight .se {
+  font-weight: bold;
+}
+.rouge-highlight .gh {
+  font-weight: bold;
+}
+.rouge-highlight .gu {
+  font-weight: bold;
+}
+.rouge-highlight .ge {
+  font-style: italic;
+}
+.rouge-highlight .ges {
+  font-weight: bold;
+  font-style: italic;
+}
+.rouge-highlight .gs {
+  font-weight: bold;
+}
+.rouge-highlight .gp {
+  font-weight: bold;
+}
+.rouge-highlight .err {
+  color: #FF0000;
+}

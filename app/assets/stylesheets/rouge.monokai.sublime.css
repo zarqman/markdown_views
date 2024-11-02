@@ -12,7 +12,15 @@
 .rouge-highlight .gp {
   color: #555555;
 }
+.rouge-highlight .ge {
+  font-style: italic;
+}
+.rouge-highlight .ges {
+  font-weight: bold;
+  font-style: italic;
+}
 .rouge-highlight .gs {
+  font-weight: bold;
 }
 .rouge-highlight .gu {
   color: #aaaaaa;
@@ -32,7 +40,7 @@
 .rouge-highlight .cs {
   color: #75715e;
 }
-.rouge-highlight .c, .rouge-highlight .cd {
+.rouge-highlight .c, .rouge-highlight .ch, .rouge-highlight .cd, .rouge-highlight .cpf {
   color: #75715e;
 }
 .rouge-highlight .err {
@@ -48,9 +56,6 @@
   color: #49483e;
 }
 .rouge-highlight .gi {
-  color: #49483e;
-}
-.rouge-highlight .ge {
   color: #49483e;
 }
 .rouge-highlight .kc {
@@ -116,7 +121,7 @@
 .rouge-highlight .s1 {
   color: #e6db74;
 }
-.rouge-highlight .s {
+.rouge-highlight .s, .rouge-highlight .sa, .rouge-highlight .dl {
   color: #e6db74;
 }
 .rouge-highlight .na {
@@ -131,41 +136,52 @@
 .rouge-highlight .ne {
   color: #a6e22e;
 }
-.rouge-highlight .nf {
+.rouge-highlight .nf, .rouge-highlight .fm {
   color: #a6e22e;
 }
 .rouge-highlight .vc {
   color: #ffffff;
+  background-color: #272822;
 }
 .rouge-highlight .nn {
   color: #ffffff;
+  background-color: #272822;
 }
 .rouge-highlight .nl {
   color: #ffffff;
+  background-color: #272822;
 }
 .rouge-highlight .ni {
   color: #ffffff;
+  background-color: #272822;
 }
 .rouge-highlight .bp {
   color: #ffffff;
+  background-color: #272822;
 }
 .rouge-highlight .vg {
   color: #ffffff;
+  background-color: #272822;
 }
 .rouge-highlight .vi {
   color: #ffffff;
+  background-color: #272822;
 }
-.rouge-highlight .nv {
+.rouge-highlight .nv, .rouge-highlight .vm {
   color: #ffffff;
+  background-color: #272822;
 }
 .rouge-highlight .w {
   color: #ffffff;
+  background-color: #272822;
 }
 .rouge-highlight {
   color: #ffffff;
+  background-color: #272822;
 }
 .rouge-highlight .n, .rouge-highlight .py, .rouge-highlight .nx {
   color: #ffffff;
+  background-color: #272822;
 }
 .rouge-highlight .ow {
   color: #f92672;

@@ -1,0 +1,116 @@
+.rouge-highlight table td { padding: 5px; }
+.rouge-highlight table pre { margin: 0; }
+.rouge-highlight, .rouge-highlight .w {
+  color: #c9d1d9;
+  background-color: #161b22;
+}
+.rouge-highlight .k, .rouge-highlight .kd, .rouge-highlight .kn, .rouge-highlight .kp, .rouge-highlight .kr, .rouge-highlight .kt, .rouge-highlight .kv {
+  color: #ff7b72;
+}
+.rouge-highlight .gr {
+  color: #f0f6fc;
+}
+.rouge-highlight .gd {
+  color: #ffdcd7;
+  background-color: #67060c;
+}
+.rouge-highlight .nb {
+  color: #ffa657;
+}
+.rouge-highlight .nc {
+  color: #ffa657;
+}
+.rouge-highlight .no {
+  color: #ffa657;
+}
+.rouge-highlight .nn {
+  color: #ffa657;
+}
+.rouge-highlight .sr {
+  color: #7ee787;
+}
+.rouge-highlight .na {
+  color: #7ee787;
+}
+.rouge-highlight .nt {
+  color: #7ee787;
+}
+.rouge-highlight .gi {
+  color: #aff5b4;
+  background-color: #033a16;
+}
+.rouge-highlight .ges {
+  font-weight: bold;
+  font-style: italic;
+}
+.rouge-highlight .kc {
+  color: #79c0ff;
+}
+.rouge-highlight .l, .rouge-highlight .ld, .rouge-highlight .m, .rouge-highlight .mb, .rouge-highlight .mf, .rouge-highlight .mh, .rouge-highlight .mi, .rouge-highlight .il, .rouge-highlight .mo, .rouge-highlight .mx {
+  color: #79c0ff;
+}
+.rouge-highlight .sb {
+  color: #79c0ff;
+}
+.rouge-highlight .bp {
+  color: #79c0ff;
+}
+.rouge-highlight .ne {
+  color: #79c0ff;
+}
+.rouge-highlight .nl {
+  color: #79c0ff;
+}
+.rouge-highlight .py {
+  color: #79c0ff;
+}
+.rouge-highlight .nv, .rouge-highlight .vc, .rouge-highlight .vg, .rouge-highlight .vi, .rouge-highlight .vm {
+  color: #79c0ff;
+}
+.rouge-highlight .o, .rouge-highlight .ow {
+  color: #79c0ff;
+}
+.rouge-highlight .gh {
+  color: #1f6feb;
+  font-weight: bold;
+}
+.rouge-highlight .gu {
+  color: #1f6feb;
+  font-weight: bold;
+}
+.rouge-highlight .s, .rouge-highlight .sa, .rouge-highlight .sc, .rouge-highlight .dl, .rouge-highlight .sd, .rouge-highlight .s2, .rouge-highlight .se, .rouge-highlight .sh, .rouge-highlight .sx, .rouge-highlight .s1, .rouge-highlight .ss {
+  color: #a5d6ff;
+}
+.rouge-highlight .nd {
+  color: #d2a8ff;
+}
+.rouge-highlight .nf, .rouge-highlight .fm {
+  color: #d2a8ff;
+}
+.rouge-highlight .err {
+  color: #f0f6fc;
+  background-color: #8e1519;
+}
+.rouge-highlight .c, .rouge-highlight .ch, .rouge-highlight .cd, .rouge-highlight .cm, .rouge-highlight .cp, .rouge-highlight .cpf, .rouge-highlight .c1, .rouge-highlight .cs {
+  color: #8b949e;
+}
+.rouge-highlight .gl {
+  color: #8b949e;
+}
+.rouge-highlight .gt {
+  color: #8b949e;
+}
+.rouge-highlight .ni {
+  color: #c9d1d9;
+}
+.rouge-highlight .si {
+  color: #c9d1d9;
+}
+.rouge-highlight .ge {
+  color: #c9d1d9;
+  font-style: italic;
+}
+.rouge-highlight .gs {
+  color: #c9d1d9;
+  font-weight: bold;
+}

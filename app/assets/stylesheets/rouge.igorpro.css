@@ -9,8 +9,18 @@
 .rouge-highlight .cs {
   color: #CC00A3;
 }
-.rouge-highlight .c, .rouge-highlight .cd, .rouge-highlight .cm, .rouge-highlight .c1 {
+.rouge-highlight .c, .rouge-highlight .ch, .rouge-highlight .cd, .rouge-highlight .cm, .rouge-highlight .cpf, .rouge-highlight .c1 {
   color: #FF0000;
+}
+.rouge-highlight .ge {
+  font-style: italic;
+}
+.rouge-highlight .ges {
+  font-weight: bold;
+  font-style: italic;
+}
+.rouge-highlight .gs {
+  font-weight: bold;
 }
 .rouge-highlight .kc {
   color: #C34E00;
@@ -24,8 +34,11 @@
 .rouge-highlight .k, .rouge-highlight .kn, .rouge-highlight .kp, .rouge-highlight .kt, .rouge-highlight .kv {
   color: #0000FF;
 }
-.rouge-highlight .s, .rouge-highlight .sb, .rouge-highlight .sc, .rouge-highlight .sd, .rouge-highlight .s2, .rouge-highlight .se, .rouge-highlight .sh, .rouge-highlight .si, .rouge-highlight .sx, .rouge-highlight .sr, .rouge-highlight .s1, .rouge-highlight .ss {
+.rouge-highlight .s, .rouge-highlight .sb, .rouge-highlight .sc, .rouge-highlight .dl, .rouge-highlight .sd, .rouge-highlight .s2, .rouge-highlight .se, .rouge-highlight .sh, .rouge-highlight .si, .rouge-highlight .sx, .rouge-highlight .sr, .rouge-highlight .s1, .rouge-highlight .ss {
   color: #009C00;
+}
+.rouge-highlight .sa {
+  color: #0000FF;
 }
 .rouge-highlight .nb, .rouge-highlight .bp {
   color: #C34E00;

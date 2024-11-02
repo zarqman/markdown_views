@@ -4,7 +4,7 @@
   color: #bbbbbb;
   background-color: #000;
 }
-.rouge-highlight .c, .rouge-highlight .cd, .rouge-highlight .cm, .rouge-highlight .c1 {
+.rouge-highlight .c, .rouge-highlight .ch, .rouge-highlight .cd, .rouge-highlight .cm, .rouge-highlight .cpf, .rouge-highlight .c1 {
   color: #888;
 }
 .rouge-highlight .cp {
@@ -34,7 +34,7 @@
 .rouge-highlight .nb, .rouge-highlight .bp {
   color: #007020;
 }
-.rouge-highlight .nf {
+.rouge-highlight .nf, .rouge-highlight .fm {
   color: #06B;
   font-weight: bold;
 }
@@ -50,7 +50,7 @@
   color: #F00;
   font-weight: bold;
 }
-.rouge-highlight .nv {
+.rouge-highlight .nv, .rouge-highlight .vm {
   color: #963;
 }
 .rouge-highlight .vi {
@@ -85,8 +85,12 @@
   color: #555;
   font-weight: bold;
 }
-.rouge-highlight .s, .rouge-highlight .sb, .rouge-highlight .s2, .rouge-highlight .sh, .rouge-highlight .s1 {
+.rouge-highlight .s, .rouge-highlight .sb, .rouge-highlight .dl, .rouge-highlight .s2, .rouge-highlight .sh, .rouge-highlight .s1 {
   background-color: #fff0f0;
+}
+.rouge-highlight .sa {
+  color: #080;
+  font-weight: bold;
 }
 .rouge-highlight .sc {
   color: #04D;
@@ -149,6 +153,10 @@
   color: #FF0000;
 }
 .rouge-highlight .ge {
+  font-style: italic;
+}
+.rouge-highlight .ges {
+  font-weight: bold;
   font-style: italic;
 }
 .rouge-highlight .gs {

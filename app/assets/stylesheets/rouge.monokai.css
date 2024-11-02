@@ -1,6 +1,6 @@
 .rouge-highlight table td { padding: 5px; }
 .rouge-highlight table pre { margin: 0; }
-.rouge-highlight .c, .rouge-highlight .cd {
+.rouge-highlight .c, .rouge-highlight .ch, .rouge-highlight .cd, .rouge-highlight .cpf {
   color: #75715e;
   font-style: italic;
 }
@@ -34,7 +34,10 @@
   background-color: #493131;
 }
 .rouge-highlight .ge {
-  color: #000000;
+  font-style: italic;
+}
+.rouge-highlight .ges {
+  font-weight: bold;
   font-style: italic;
 }
 .rouge-highlight .gr {
@@ -115,6 +118,10 @@
 .rouge-highlight .se {
   color: #ae81ff;
 }
+.rouge-highlight .sa {
+  color: #66d9ef;
+  font-weight: bold;
+}
 .rouge-highlight .sb {
   color: #e6db74;
 }
@@ -145,7 +152,7 @@
 .rouge-highlight .ss {
   color: #e6db74;
 }
-.rouge-highlight .s {
+.rouge-highlight .s, .rouge-highlight .dl {
   color: #e6db74;
 }
 .rouge-highlight .na {
@@ -163,7 +170,7 @@
   color: #a6e22e;
   font-weight: bold;
 }
-.rouge-highlight .nf {
+.rouge-highlight .nf, .rouge-highlight .fm {
   color: #a6e22e;
   font-weight: bold;
 }
@@ -191,7 +198,7 @@
 .rouge-highlight .vi {
   color: #f8f8f2;
 }
-.rouge-highlight .nv {
+.rouge-highlight .nv, .rouge-highlight .vm {
   color: #f8f8f2;
 }
 .rouge-highlight .w {

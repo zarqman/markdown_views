@@ -53,7 +53,7 @@ CommonMarker's rendering can also be configured. See [CommonMarker's documentati
 Likewise, Rouge can be configured:
 
     # Use inline formatting:
-    MarkdownViews.rouge_opts.merge! formatter: Rouge::Formatters::HTMLInline.new('pastie')
+    MarkdownViews.rouge_opts.merge! formatter: Rouge::Formatters::HTMLInline.new('monokai')
 
     # Enable line numbers:
     MarkdownViews.rouge_opts.merge!(
