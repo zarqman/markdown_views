@@ -18,9 +18,11 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+  spec.required_ruby_version = '~> 3.1'
+
   spec.add_dependency 'commonmarker', '>= 0.18.2', '< 0.24'
-  spec.add_dependency 'rails', '>= 5.0', '< 8.1'
-  spec.add_dependency 'rouge', '>= 3.3', '< 5.0'
+  spec.add_dependency 'rails', '>= 6.1', '< 8.1'
+  spec.add_dependency 'rouge', '~> 4'
 
   spec.add_development_dependency "minitest-reporters"
   spec.add_development_dependency "rake"

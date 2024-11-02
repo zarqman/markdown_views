@@ -7,8 +7,4 @@ require 'rouge'
   require "markdown_views/#{f}"
 end
 
-if ActionView.version < Gem::Version.new('6.0.0.a')
-  ActionView::Template.register_template_handler(:md, MarkdownViews::Handler52)
-else
-  ActionView::Template.register_template_handler(:md, MarkdownViews::Handler)
-end
+ActionView::Template.register_template_handler(:md, MarkdownViews::Handler)
