@@ -1,6 +1,6 @@
 # MarkdownViews
 
-MarkdownViews enables Rails 5-8+ to process .md templates as part of `app/views/`, with optional preprocessing of ERB, HAML, etc. A `markdown()` helper is also provided for when you need Markdown for only part of a view.
+MarkdownViews enables Rails to process .md templates as part of `app/views/`, with optional preprocessing of ERB, HAML, etc. A `markdown()` helper is also provided for when you need Markdown for only part of a view.
 
 It uses CommonMarker for markdown processing and Rouge for syntax highlighting.
 
@@ -44,11 +44,11 @@ By default, all .md files are preprocessed with ERB (making them effectively .md
 
 CommonMarker's rendering can also be configured. See [CommonMarker's documentation](https://github.com/gjtorikian/commonmarker#options-and-plugins) for available options.
 
-    MarkdownViews.parsing_opts -= %i(UNSAFE)
+    MarkdownViews.parsing_opts.merge! smart: false
 
-    MarkdownViews.rendering_opts -= %i(UNSAFE TABLE_PREFER_STYLE_ATTRIBUTES)
+    MarkdownViews.rendering_opts.merge! unsafe: false
 
-    MarkdownViews.extensions -= %i(autolink)
+    MarkdownViews.extensions.merge! tasklist: true
 
 Likewise, Rouge can be configured:
 
@@ -81,15 +81,16 @@ And then execute:
 
 ## Gem versions
 
-The 0.x series used RedCarpet and CodeRay.
-(There was no 1.x series.)
-The 2.x series uses CommonMarker and Rouge.
+The 3.x series uses CommonMarker 1.x and Rouge. It is compatible with Rails 6.1-8+.
+The 2.x series uses CommonMarker 0.x and Rouge. It is compatible with Rails 5.0-8.0.
 
-#### Upgrading from 0.x to 2.x
+#### Upgrading from 2.x to 3.x
 
-The configuration options have changed. The defaults are roughly the same as before. However, if you had customized them previously, then it will need to be revisited.
+CommonMarker 1.x swapped out the underlying parser. While the rendered markdown output is very similar, the configuration flags were reworked. This gem's defaults are roughly the same as before. However, if your configuration was previously customized, it will need to be updated.
 
-Similarly, the provided stylesheets for syntax highlighting have been changed. If you were importing the 'coderay' stylesheet before, then a new stylesheet will need to be selected. Try 'rouge.colorful' or one of the others included in app/assets/stylesheets.
+CommonMarker 1's new syntax highlighting is not used, with preference instead given to Rouge. This preserves rendering compatibility, including existing stylesheets.
+
+The stylesheets were refreshed from Rouge 4.4 which corrects a few missing CSS selectors. The github stylesheet was also renamed from `rouge.github` to `rouge.github.light`.
 
 
 ## Contributing
@@ -99,3 +100,8 @@ Similarly, the provided stylesheets for syntax highlighting have been changed. I
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+
+## License
+
+MIT
