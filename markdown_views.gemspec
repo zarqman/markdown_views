@@ -20,9 +20,10 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '~> 3.1'
 
-  spec.add_dependency 'commonmarker', '>= 0.18.2', '< 0.24'
+  spec.add_dependency 'commonmarker', '~> 1.1'
   spec.add_dependency 'rails', '>= 6.1', '< 8.1'
   spec.add_dependency 'rouge', '~> 4'
+  spec.add_dependency 'securerandom'
 
   spec.add_development_dependency "minitest-reporters"
   spec.add_development_dependency "rake"

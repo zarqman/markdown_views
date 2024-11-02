@@ -13,11 +13,26 @@ module MarkdownViews
       # remainder all considered private
 
       def render_md(input)
-        doc = CommonMarker.render_doc(input, MarkdownViews.parsing_opts, MarkdownViews.extensions)
+        doc = Commonmarker.parse(input, options: {
+          extension: MarkdownViews.extensions,
+          parse: MarkdownViews.parsing_opts,
+        })
 
-        MarkdownViews.transformers.each {|name| send("transform_#{name}", doc) }
+        if MarkdownViews.transformers.include? :code_blocks
+          code_blocks = transform_code_blocks(doc)
+        end
 
-        doc.to_html(MarkdownViews.rendering_opts, MarkdownViews.extensions)
+        out = doc.to_html(
+          options: {
+            extension: MarkdownViews.extensions,
+            render: MarkdownViews.rendering_opts,
+          },
+          plugins: MarkdownViews.plugins
+        )
+        code_blocks&.each do |uuid, cb|
+          out.sub! uuid, cb
+        end
+        out
       end
 
       def rouge_formatter
@@ -52,6 +67,7 @@ module MarkdownViews
       end
 
       def transform_code_blocks(doc)
+        code_blocks = {}
         doc.walk do |node|
           next unless node.type == :code_block
           next if node.fence_info == ''
@@ -64,11 +80,12 @@ module MarkdownViews
             html = %Q{<pre lang="#{lang.gsub(/[^a-z0-9_-]/,'')}"><code class="rouge-highlight">#{html}</code></pre>}
           end
 
-          new_node = CommonMarker::Node.new(:html)
-          new_node.string_content = html
-          node.insert_before new_node
-          node.delete
+          uuid = SecureRandom.uuid
+          code_blocks[uuid] = html
+          new_node = Commonmarker::Node.new(:text, content: "#{uuid}\n")
+          node.replace new_node
         end
+        code_blocks
       end
 
     end

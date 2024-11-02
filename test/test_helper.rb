@@ -12,7 +12,11 @@ module TestHelpers
   # hack to make diffs more understandable
   # otherwise minitest sometimes truncates multi-lines diffs, making them unusable
   def mu_pp(obj)
-    super obj.gsub("\n", '\n').gsub("\t", '\t')
+    if obj.is_a? String
+      super obj.gsub("\n", '\n').gsub("\t", '\t')
+    else
+      super
+    end
   end
 
 end
