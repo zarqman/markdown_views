@@ -24,6 +24,7 @@ class ConfigTest < Minitest::Test
       underline:                   false,
       spoiler:                     false,
       greentext:                   false,
+      subscript:                   false,
     }
     assert_equal expected, processed
   end
