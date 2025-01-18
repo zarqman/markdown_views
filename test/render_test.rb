@@ -35,9 +35,9 @@ class RenderTest < Minitest::Test
       ```
     MD
     o = <<~HTML
-      <pre lang=\"ruby\"><code class=\"rouge-highlight\"><span class=\"k\">def</span> <span class=\"nf\">syntax_highlighting</span>
-        <span class=\"s1\">'works too!'</span>
-      <span class=\"k\">end</span></code></pre>
+      <pre lang="ruby"><code class="rouge-highlight"><span class="k">def</span> <span class="nf">syntax_highlighting</span>
+        <span class="s1">'works too!'</span>
+      <span class="k">end</span></code></pre>
     HTML
     assert_equal o, render(s)
   end

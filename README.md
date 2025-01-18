@@ -81,7 +81,7 @@ And then execute:
 
 ## Gem versions
 
-The 3.x series uses CommonMarker 1.x and Rouge. It is compatible with Rails 6.1-8+.
+The 3.x series uses CommonMarker 1.x or 2.x and Rouge. It is compatible with Rails 6.1-8+.
 The 2.x series uses CommonMarker 0.x and Rouge. It is compatible with Rails 5.0-8.0.
 
 #### Upgrading from 2.x to 3.x
