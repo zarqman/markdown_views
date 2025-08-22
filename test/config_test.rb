@@ -25,6 +25,8 @@ class ConfigTest < Minitest::Test
       spoiler:                     false,
       greentext:                   false,
       subscript:                   false,
+      alerts:                      false,
+      cjk_friendly_emphasis:       true,
     }
     assert_equal expected, processed
   end
@@ -63,6 +65,7 @@ class ConfigTest < Minitest::Test
       ignore_empty_links: false,
       gfm_quirks:         false,
       prefer_fenced:      false,
+      tasklist_classes:   false,
     }
     assert_equal expected, processed
   end

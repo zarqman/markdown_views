@@ -14,6 +14,7 @@ module MarkdownViews
     tasklist: false,
     header_ids: nil,
     shortcodes: false,
+    cjk_friendly_emphasis: true,
   )
 
   mattr_accessor :transformers
