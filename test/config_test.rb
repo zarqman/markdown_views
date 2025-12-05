@@ -13,6 +13,7 @@ class ConfigTest < Minitest::Test
       superscript:                 false,
       # header_ids:                '',
       footnotes:                   false,
+      inline_footnotes:            false,
       description_lists:           false,
       front_matter_delimiter:      '',
       multiline_block_quotes:      false,
@@ -25,8 +26,10 @@ class ConfigTest < Minitest::Test
       spoiler:                     false,
       greentext:                   false,
       subscript:                   false,
+      subtext:                     false,
       alerts:                      false,
       cjk_friendly_emphasis:       true,
+      highlight:                   false,
     }
     assert_equal expected, processed
   end
@@ -34,10 +37,11 @@ class ConfigTest < Minitest::Test
   def test_parsing_opts
     processed = Commonmarker::Config.process_options(parse: MarkdownViews.parsing_opts)[:parse]
     expected = {
-      smart:                     true,
-      default_info_string:       '',
-      relaxed_tasklist_matching: false,
-      relaxed_autolinks:         false,
+      smart:                      true,
+      default_info_string:        '',
+      relaxed_tasklist_matching:  false,
+      relaxed_autolinks:          false,
+      leave_footnote_definitions: false,
     }
     assert_equal expected, processed
   end
