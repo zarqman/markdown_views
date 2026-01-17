@@ -42,6 +42,31 @@ class RenderTest < Minitest::Test
     assert_equal o, render(s)
   end
 
+  def test_integer
+    o = <<~HTML
+      <p>314</p>
+    HTML
+    assert_equal o, render(314)
+  end
+
+  def test_float
+    o = <<~HTML
+      <p>3.14</p>
+    HTML
+    assert_equal o, render(3.14)
+  end
+
+  def test_bigdecimal
+    o = <<~HTML
+      <p>3.14</p>
+    HTML
+    assert_equal o, render(BigDecimal('3.14'))
+  end
+
+  def test_nil
+    assert_equal '', render(nil)
+  end
+
 
   def render(*args)
     MarkdownViews::Renderer.render(*args)

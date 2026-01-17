@@ -3,7 +3,7 @@ module MarkdownViews
     class << self
 
       def render(template)
-        out = template.to_s
+        out = template.to_s.encode('UTF-8')
         out = strip_comments(out) if MarkdownViews.strip_comments
         out = render_md(out)
         out = strip_comments(out) if MarkdownViews.strip_comments
