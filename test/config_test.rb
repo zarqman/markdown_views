@@ -30,6 +30,7 @@ class ConfigTest < Minitest::Test
       alerts:                      false,
       cjk_friendly_emphasis:       true,
       highlight:                   false,
+      insert:                      false,
     }
     assert_equal expected, processed
   end
@@ -42,6 +43,7 @@ class ConfigTest < Minitest::Test
       relaxed_tasklist_matching:  false,
       relaxed_autolinks:          false,
       leave_footnote_definitions: false,
+      ignore_setext:              false,
     }
     assert_equal expected, processed
   end
@@ -65,11 +67,11 @@ class ConfigTest < Minitest::Test
       escape:             false,
       sourcepos:          false,
       escaped_char_spans: false,
-      ignore_setext:      false,
       ignore_empty_links: false,
       gfm_quirks:         false,
       prefer_fenced:      false,
       tasklist_classes:   false,
+      compact_html:       false,
     }
     assert_equal expected, processed
   end

@@ -1,4 +1,4 @@
-Copyright 2014-2025 thomas morgan
+Copyright 2014-2026 thomas morgan
 
 MIT License
 
