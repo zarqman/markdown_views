@@ -34,6 +34,8 @@ class ConfigTest < Minitest::Test
       insert:                      false,
       block_directive:             false,
     }
+    expected.except! :header_id_prefix_in_href, :block_directive if Commonmarker::VERSION < '2.8'
+    expected.except! :insert if Commonmarker::VERSION < '2.7'
     assert_equal expected, processed
   end
 
@@ -48,6 +50,7 @@ class ConfigTest < Minitest::Test
       ignore_setext:              false,
       sourcepos_chars:            false,
     }
+    expected.except! :sourcepos_chars if Commonmarker::VERSION < '2.8'
     assert_equal expected, processed
   end
 
@@ -76,6 +79,7 @@ class ConfigTest < Minitest::Test
       tasklist_classes:   false,
       compact_html:       false,
     }
+    expected.except! :compact_html if Commonmarker::VERSION < '2.7'
     assert_equal expected, processed
   end
 
