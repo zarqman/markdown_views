@@ -12,6 +12,7 @@ class ConfigTest < Minitest::Test
       tasklist:                    false,
       superscript:                 false,
       # header_ids:                '',
+      header_id_prefix_in_href:    false,
       footnotes:                   false,
       inline_footnotes:            false,
       description_lists:           false,
@@ -31,6 +32,7 @@ class ConfigTest < Minitest::Test
       cjk_friendly_emphasis:       true,
       highlight:                   false,
       insert:                      false,
+      block_directive:             false,
     }
     assert_equal expected, processed
   end
@@ -44,6 +46,7 @@ class ConfigTest < Minitest::Test
       relaxed_autolinks:          false,
       leave_footnote_definitions: false,
       ignore_setext:              false,
+      sourcepos_chars:            false,
     }
     assert_equal expected, processed
   end

@@ -13,6 +13,7 @@ module MarkdownViews
     autolink: true,
     tasklist: false,
     header_ids: nil,
+    header_id_prefix: nil,
     shortcodes: false,
     cjk_friendly_emphasis: true,
   )
