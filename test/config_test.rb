@@ -20,6 +20,7 @@ class ConfigTest < Minitest::Test
       multiline_block_quotes:      false,
       math_dollars:                false,
       math_code:                   false,
+      math_latex:                  false,
       shortcodes:                  false,
       wikilinks_title_before_pipe: false,
       wikilinks_title_after_pipe:  false,
@@ -34,8 +35,8 @@ class ConfigTest < Minitest::Test
       insert:                      false,
       block_directive:             false,
     }
+    expected.except! :math_latex if Commonmarker::VERSION < '2.9'
     expected.except! :header_id_prefix_in_href, :block_directive if Commonmarker::VERSION < '2.8'
-    expected.except! :insert if Commonmarker::VERSION < '2.7'
     assert_equal expected, processed
   end
 
@@ -78,8 +79,9 @@ class ConfigTest < Minitest::Test
       prefer_fenced:      false,
       tasklist_classes:   false,
       compact_html:       false,
+      alert_style:        "specific",
     }
-    expected.except! :compact_html if Commonmarker::VERSION < '2.7'
+    expected.except! :alert_style if Commonmarker::VERSION < '2.9'
     assert_equal expected, processed
   end
 
