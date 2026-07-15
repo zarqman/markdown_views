@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'commonmarker', '>= 1.1', '< 3.0'
   spec.add_dependency 'rails', '>= 6.1'
-  spec.add_dependency 'rouge', '~> 4'
+  spec.add_dependency 'rouge', '>= 4', '< 6'
   spec.add_dependency 'securerandom'
 
   spec.add_development_dependency "minitest-reporters"
