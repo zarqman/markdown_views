@@ -35,8 +35,8 @@ class ConfigTest < Minitest::Test
       insert:                      false,
       block_directive:             false,
     }
-    expected.except! :math_latex if Commonmarker::VERSION < '2.9'
-    expected.except! :header_id_prefix_in_href, :block_directive if Commonmarker::VERSION < '2.8'
+    expected.except! :math_latex if cm_version < '2.9'
+    expected.except! :header_id_prefix_in_href, :block_directive if cm_version < '2.8'
     assert_equal expected, processed
   end
 
@@ -51,7 +51,7 @@ class ConfigTest < Minitest::Test
       ignore_setext:              false,
       sourcepos_chars:            false,
     }
-    expected.except! :sourcepos_chars if Commonmarker::VERSION < '2.8'
+    expected.except! :sourcepos_chars if cm_version < '2.8'
     assert_equal expected, processed
   end
 
@@ -81,8 +81,13 @@ class ConfigTest < Minitest::Test
       compact_html:       false,
       alert_style:        "specific",
     }
-    expected.except! :alert_style if Commonmarker::VERSION < '2.9'
+    expected.except! :alert_style if cm_version < '2.9'
     assert_equal expected, processed
+  end
+
+
+  def cm_version
+    @cm_version ||= Gem::Version.new Commonmarker::VERSION
   end
 
 end
