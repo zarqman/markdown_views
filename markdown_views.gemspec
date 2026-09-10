@@ -10,6 +10,10 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/zarqman/markdown_views"
   spec.license       = "MIT"
 
+  spec.metadata["homepage_uri"] = spec.homepage
+  spec.metadata["source_code_uri"] = spec.homepage
+  spec.metadata["changelog_uri"] = "#{spec.homepage}/blob/master/CHANGELOG.md"
+
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
     Dir["{app,config,db,exe,lib}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
   end
