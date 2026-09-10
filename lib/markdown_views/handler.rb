@@ -10,10 +10,19 @@ module MarkdownViews
         R1
       end
 
-      def preprocessor
-        @@preprocessor ||= begin
-          pp = MarkdownViews.preprocessor || :raw
-          ActionView::Template.registered_template_handler(pp) || raise('Unknown template handler')
+      if ActionView::Template::Handlers.respond_to?(:template_handlers) # as of rails 8.2
+        def preprocessor
+          @@preprocessor ||= begin
+            pp = MarkdownViews.preprocessor || :raw
+            ActionView::Template::Handlers.template_handlers[pp.to_sym] || raise('Unknown template handler')
+          end
+        end
+      else
+        def preprocessor
+          @@preprocessor ||= begin
+            pp = MarkdownViews.preprocessor || :raw
+            ActionView::Template.registered_template_handler(pp) || raise('Unknown template handler')
+          end
         end
       end
 
