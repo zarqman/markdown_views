@@ -1,7 +1,4 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'markdown_views/version'
+require_relative 'lib/markdown_views/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "markdown_views"
@@ -13,10 +10,9 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/zarqman/markdown_views"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files -z`.split("\x0")
-  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
-  spec.require_paths = ["lib"]
+  spec.files = Dir.chdir(File.expand_path(__dir__)) do
+    Dir["{app,config,db,exe,lib}/**/*", "LICENSE.txt", "Rakefile", "README.md"]
+  end
 
   spec.required_ruby_version = '>= 3.1'
 
