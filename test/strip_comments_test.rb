@@ -1,6 +1,6 @@
 require "test_helper"
 
-class StripCommentsTest < Minitest::Test
+class StripCommentsTest < ActiveSupport::TestCase
 
   def test_not_greedy
     assert_equal "ace", strip_comments("a<!-- b -->c<!-- d -->e")

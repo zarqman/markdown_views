@@ -1,10 +1,11 @@
 require 'minitest/reporters'
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
-$LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
-require "markdown_views"
+# Configure Rails Environment
+ENV["RAILS_ENV"] = "test"
 
-require "minitest/autorun"
+require_relative "../test/dummy/config/environment"
+require "rails/test_help"
 
 
 module TestHelpers

@@ -1,6 +1,10 @@
+APP_RAKEFILE = File.expand_path("test/dummy/Rakefile", __dir__)
+load "rails/tasks/engine.rake"
+
 require "bundler/gem_tasks"
 require "rake/testtask"
 
+desc 'regenerate stylesheets for rouge themes'
 task :generate_stylesheets do
   %w( base16.dark base16.light base16.monokai.dark base16.monokai.light
       base16.solarized.dark base16.solarized.light bw colorful

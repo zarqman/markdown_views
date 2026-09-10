@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ConfigTest < Minitest::Test
+class ConfigTest < ActiveSupport::TestCase
 
   def test_extensions
     processed = Commonmarker::Config.process_options(extension: MarkdownViews.extensions)[:extension]

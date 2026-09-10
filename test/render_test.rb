@@ -1,6 +1,6 @@
 require "test_helper"
 
-class RenderTest < Minitest::Test
+class RenderTest < ActiveSupport::TestCase
 
   def test_markdown
     s = <<~MD
