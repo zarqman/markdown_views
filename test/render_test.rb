@@ -26,6 +26,18 @@ class RenderTest < ActiveSupport::TestCase
     assert_equal o, render(s)
   end
 
+  def test_inline_html_unsafe
+    s = <<~MD
+      ---
+      <script>alert('hi');</script> html
+    MD
+    o = <<~HTML
+      <hr />
+      &lt;script>alert('hi');&lt;/script> html
+    HTML
+    assert_equal o, render(s)
+  end
+
   def test_code_block
     s = <<~MD
       ```ruby
