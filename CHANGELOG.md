@@ -1,3 +1,9 @@
+#### 3.5.1
+
+- Restrict CommonMarker to <= 2.10.0 to preserve `tagfilter` (see 4.0.0)
+  Warning: tagfilter has potential quadratic CPU usage.
+  See https://github.com/kivikakk/comrak/issues/829.
+
 #### 3.5.0
 
 - Update template handler to support Rails 8.2
