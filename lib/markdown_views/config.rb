@@ -8,7 +8,6 @@ module MarkdownViews
   mattr_accessor :extensions
   self.extensions = Commonmarker::Config::OPTIONS[:extension].merge(
     strikethrough: true,
-    tagfilter: true,
     table: true,
     autolink: true,
     tasklist: false,

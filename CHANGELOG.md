@@ -1,3 +1,14 @@
+#### 4.0.0
+
+- (Potentially Breaking) Allow CommonMarker 2.10.1 which removes the `tagfilter` plugin
+  This potentially affects sanitization of untrusted user input, but only when Rails didn't already sanitize the input before tagfilter saw it.
+  Most normal markdown rendering within Rails views, both `.html.md` and `markdown()` inside `.html.erb`, uses Rails' html_safe mechanism for sanitization--and always has. This remains unchanged by the loss of tagfilter.
+  However, **Warning**: If your app does somehow rely on tagfilter's sanitization alone, the loss of tagfilter might expose XSS or other risks. Most likely this would look like using the `raw()` helper, calling `MarkdownViews::Renderer.render` directly, or overriding the default `MarkdownViews.preprocessor` to something besides `:erb`.
+  If you need to identify whether currently sanitized output is sanitized by Rails or CommonMarker <= 2.10.0, there are a couple key differences:
+    Rails/erb - sanitizes all use of `<` and `>`, eg: `<script>` becomes `&lt;script&gt;` and `<em>` becomes `&lt;em&gt;`.
+    tagfilter - sanitizes only `<`, and only `iframe`, `noembed`, `noframes`, `plaintext`, `script`, `style`, `textarea`, `title`, and `xmp` tags, eg: `<script>` becomes `&lt;script>` and `<em>` is left as-is.
+- Update defaults for CommonMarker 2.10.1
+  
 #### 3.5.1
 
 - Restrict CommonMarker to <= 2.10.0 to preserve `tagfilter` (see 4.0.0)

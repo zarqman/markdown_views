@@ -31,10 +31,17 @@ class RenderTest < ActiveSupport::TestCase
       ---
       <script>alert('hi');</script> html
     MD
-    o = <<~HTML
-      <hr />
-      &lt;script>alert('hi');&lt;/script> html
-    HTML
+    if cm_version >= '2.10.1'
+      o = <<~HTML
+        <hr />
+        <script>alert('hi');</script> html
+      HTML
+    else
+      o = <<~HTML
+        <hr />
+        &lt;script>alert('hi');&lt;/script> html
+      HTML
+    end
     assert_equal o, render(s)
   end
 

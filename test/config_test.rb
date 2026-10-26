@@ -35,6 +35,7 @@ class ConfigTest < ActiveSupport::TestCase
       insert:                      false,
       block_directive:             false,
     }
+    expected.except! :tagfilter if cm_version >= '2.10.1'
     expected.except! :math_latex if cm_version < '2.9'
     expected.except! :header_id_prefix_in_href, :block_directive if cm_version < '2.8'
     assert_equal expected, processed
@@ -50,7 +51,9 @@ class ConfigTest < ActiveSupport::TestCase
       leave_footnote_definitions: false,
       ignore_setext:              false,
       sourcepos_chars:            false,
+      max_nesting_depth:          1000,
     }
+    expected.except! :max_nesting_depth if cm_version < '2.10.1'
     expected.except! :sourcepos_chars if cm_version < '2.8'
     assert_equal expected, processed
   end
@@ -79,15 +82,10 @@ class ConfigTest < ActiveSupport::TestCase
       prefer_fenced:      false,
       tasklist_classes:   false,
       compact_html:       false,
-      alert_style:        "specific",
+      alert_style:        'specific',
     }
     expected.except! :alert_style if cm_version < '2.9'
     assert_equal expected, processed
-  end
-
-
-  def cm_version
-    @cm_version ||= Gem::Version.new Commonmarker::VERSION
   end
 
 end

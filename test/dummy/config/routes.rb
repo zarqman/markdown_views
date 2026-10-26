@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   get 'info' => 'info#show'
+  get 'embed_md' => 'info#embed_md'
 
   # Defines the root path route ("/")
   # root "posts#index"

@@ -1,2 +1,5 @@
 # header
 this is *amazing*!
+
+<script>alert('raw');</script><!-- sanitized on 2.10.0; not sanitized on 2.10.1 -->
+<%= "<script>alert('non-html_safe');</script>" %><!-- sanitized on both -->

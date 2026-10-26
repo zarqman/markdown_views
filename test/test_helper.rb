@@ -20,5 +20,9 @@ module TestHelpers
     end
   end
 
+  def cm_version
+    @cm_version ||= Gem::Version.new Commonmarker::VERSION
+  end
+
 end
 Minitest::Test.include TestHelpers
