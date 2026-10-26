@@ -77,16 +77,14 @@ Add to Gemfile:
 
 ## Gem versions
 
+The 4.x series uses CommonMarker 2.x and Rouge. It is compatible with Rails 6.1-8+.
 The 3.x series uses CommonMarker 1.x or 2.x and Rouge. It is compatible with Rails 6.1-8+.
-The 2.x series uses CommonMarker 0.x and Rouge. It is compatible with Rails 5.0-8.0.
 
-#### Upgrading from 2.x to 3.x
+#### Upgrading from 3.x to 4.x
 
-CommonMarker 1.x swapped out the underlying parser. While the rendered markdown output is very similar, the configuration flags were reworked. This gem's defaults are roughly the same as before. However, if your configuration was previously customized, it will need to be updated.
+CommonMarker 2.10.1 removed the `tagfilter` plugin, which performed limited sanitization. Under most circumstances, Rails' own sanitization ran first (and still runs), making tagfilter a no-op. However, if using markdown with untrusted input, see the changelog entry for 4.0.0 to learn more about whether losing tagfilter affects your app.
 
-CommonMarker 1's new syntax highlighting is not used, with preference instead given to Rouge. This preserves rendering compatibility, including existing stylesheets.
-
-The stylesheets were refreshed from Rouge 4.4 which corrects a few missing CSS selectors. The github stylesheet was also renamed from `rouge.github` to `rouge.github.light`.
+The 4.0 release has no other substantive changes from 3.5.1 and is a major bump only to highlight the loss of tagfilter. Apps wanting to keep tagfilter should lock to `'markdown_views', '~> 3.5.1'`. Note that 3.5.0 and prior do not prevent the installation of commonmarker 2.10.1 and loss of tagfilter. Use either 3.5.1+ _or_ 4.0+.
 
 
 ## Contributing
