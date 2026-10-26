@@ -8,7 +8,8 @@
     Rails/erb - sanitizes all use of `<` and `>`, eg: `<script>` becomes `&lt;script&gt;` and `<em>` becomes `&lt;em&gt;`.
     tagfilter - sanitizes only `<`, and only `iframe`, `noembed`, `noframes`, `plaintext`, `script`, `style`, `textarea`, `title`, and `xmp` tags, eg: `<script>` becomes `&lt;script>` and `<em>` is left as-is.
 - Update defaults for CommonMarker 2.10.1
-  
+- (Heads up) Support for Rails 6.x, 7.x; Rouge 4.x; and CommonMarker 1.x are all now deprecated and may be removed in a future 4.x release.  
+
 #### 3.5.1
 
 - Restrict CommonMarker to <= 2.10.0 to preserve `tagfilter` (see 4.0.0)
